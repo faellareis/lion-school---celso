@@ -1,5 +1,8 @@
 package br.senai.sp.jandira.lionschool.screens.cards
 
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -10,18 +13,24 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Person
+
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import br.senai.sp.jandira.lionschool.R
 
 @Composable
 
@@ -32,60 +41,43 @@ fun StudentsList(modifier: Modifier = Modifier) {
             .padding(horizontal = 16.dp, vertical = 4.dp),
         shape = RoundedCornerShape(8.dp),
         colors = CardDefaults.cardColors(
-            containerColor = Color.Black
+            containerColor = Color(0xFF9FA9E1)
         )
     ) {
-        Row(
+        Box(
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp),
-            verticalAlignment = Alignment.CenterVertically // Alinha os itens verticalmente ao centro
+                .width(10.dp)
+                .height(44.dp)
+                .background(Color(0xFFF9B036))
+        )
+    }
+    Spacer(modifier = Modifier.width(8.dp)) // Espaçamento entre a borda e o texto
+    Column {
+        Text(
+            stringResource(R.string.luana),
+            fontWeight = FontWeight.SemiBold,
+            fontSize = 20.sp,
+            color = Color(0xFFFFFFFF)
+        )
+        Row(
+            verticalAlignment = Alignment.CenterVertically
         ) {
-            // Elemento 1: Imagem (exemplo de um ícone)
             Icon(
-                imageVector = Icons.Filled.Person,
-                contentDescription = "Ícone de Pessoa",
-                modifier = Modifier.size(48.dp),
-                tint = Color(0xFF3347B0) // Cor azul Lion School (exemplo)
+                painter = painterResource(id = R.drawable.identification), // Substitua pelo seu ícone
+                contentDescription = stringResource(R.string.numero_estudante),
+                tint = Color.White,
+                modifier = Modifier.size(16.dp) // Ajuste o tamanho conforme necessário
             )
-            Spacer(modifier = Modifier.width(16.dp)) // Espaço entre a imagem e o texto
-
-            // Elemento 2: Coluna com textos (exemplo de nome e matrícula)
-            Column {
-                Text(
-                    text = "Nome do Aluno",
-                    fontWeight = FontWeight.SemiBold,
-                    color = Color(0xFF3347B0)
-                )
-                Text(
-                    text = "Matrícula: 123456",
-                    color = Color.Gray,
-                    fontSize = 12.sp
-                )
-            }
-
-            Spacer(modifier = Modifier.weight(1f)) // Empurra os elementos à esquerda para a esquerda e os à direita para a direita
-
-            // Elemento 3: Ícone e texto (exemplo de data)
-            Row(
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Icon(
-                    imageVector = Icons.Filled.DateRange,
-                    contentDescription = "Ícone de Data",
-                    modifier = Modifier.size(20.dp),
-                    tint = Color.Gray
-                )
-                Spacer(modifier = Modifier.width(4.dp))
-                Text(
-                    text = "22/04/2025",
-                    color = Color.Gray,
-                    fontSize = 12.sp
-                )
-            }
+            Spacer(modifier = Modifier.width(4.dp)) // Espaçamento entre o ícone e o texto
+            Text(
+                stringResource(R.string.numero_estudante),
+                color = Color.White,
+                fontSize = 12.sp
+            )
         }
     }
 }
+
 
 @Preview(showSystemUi = true)
 @Composable
