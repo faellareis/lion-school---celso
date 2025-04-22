@@ -17,4 +17,14 @@
     <string name="texto_rds">Learn to design communication networks.</string>
     <string name="ele">ELE</string>
     <string name="ele2">Eletroeletrônica</string>
+    <string name="todos">Todos</string>
+    <string name="cursando">Cursando</string>
+    <string name="finalizado">Finalizado</string>
+    <string name="find_student">Find a student</string>
+    <string name="student_list">Students List</string>
+    <string name="doismildoisdois">2022</string>
+    <string name="doismildoiscinco">2025</string>
+    <string name="numero_estudante">20151001018</string>
+    <string name="luana">Luana Oliveira Dias</string>
+    <string name="pedro">Pedro da Silva Borges</string>
 </resources>

@@ -23,6 +23,7 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
@@ -88,8 +89,8 @@ fun TelaDeCurso(modifier: Modifier = Modifier) {
                 modifier = Modifier
                     .padding(
                         top = 10.dp,
-                        start = 20.dp,
-                        end = 20.dp
+                        start = 2.dp,
+                        end = 2.dp
                     ),
                 color = Color(0xFFF9B036)
             )
@@ -101,7 +102,7 @@ fun TelaDeCurso(modifier: Modifier = Modifier) {
                     Icon(
                         imageVector = Icons.Default.Search,
                         contentDescription = null,
-                        tint = Color.Black
+                        tint = Color.Gray
                     )
                 },
                 modifier = Modifier
@@ -109,6 +110,10 @@ fun TelaDeCurso(modifier: Modifier = Modifier) {
                     .align(Alignment.CenterHorizontally)
                     .fillMaxWidth(),
                 shape = RoundedCornerShape(12.dp),
+                colors = OutlinedTextFieldDefaults.colors(
+                    unfocusedBorderColor = Color(0xFFF9B036),
+                    focusedBorderColor = Color(0xFFF9B036)
+                )
             )
             Row(
                 verticalAlignment = Alignment.CenterVertically,
