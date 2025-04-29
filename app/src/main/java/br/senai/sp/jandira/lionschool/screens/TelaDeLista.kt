@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -22,6 +23,7 @@ import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
@@ -42,14 +44,12 @@ import androidx.compose.ui.unit.sp
 import br.senai.sp.jandira.lionschool.R
 
 @Composable
-
 fun TelaDeLista(modifier: Modifier = Modifier) {
     Box(
         modifier = modifier
             .fillMaxSize()
             .background(Color.White),
-
-        ) {
+    ) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
@@ -71,7 +71,6 @@ fun TelaDeLista(modifier: Modifier = Modifier) {
                         contentDescription = stringResource(R.string.logo_description),
                         modifier = Modifier.size(50.dp)
                     )
-                    Spacer(modifier = Modifier.width(8.dp))
                     Column(
                         horizontalAlignment = Alignment.Start
                     ) {
@@ -142,14 +141,18 @@ fun TelaDeLista(modifier: Modifier = Modifier) {
                 Button(
                     onClick = { },
                     shape = RoundedCornerShape(90.dp),
-                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF3347B0))
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = Color(0xFF3347B0)
+                    )
                 ) {
                     Text(stringResource(R.string.todos))
                 }
                 Button(
                     onClick = { },
                     shape = RoundedCornerShape(90.dp),
-                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFF9B036))
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = Color(0xFFF9B036)
+                    )
                 ) {
                     Text(
                         stringResource(R.string.cursando),
@@ -159,7 +162,9 @@ fun TelaDeLista(modifier: Modifier = Modifier) {
                 Button(
                     onClick = { },
                     shape = RoundedCornerShape(90.dp),
-                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFF9B036))
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = Color(0xFFF9B036)
+                    )
                 ) {
                     Text(
                         stringResource(R.string.finalizado),
@@ -169,7 +174,7 @@ fun TelaDeLista(modifier: Modifier = Modifier) {
             }
             Row(
                 verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier
+                modifier = Modifier.padding(bottom = 3.dp)
             ) {
                 Image(
                     painter = painterResource(id = R.drawable.student),
@@ -184,9 +189,98 @@ fun TelaDeLista(modifier: Modifier = Modifier) {
                     fontWeight = FontWeight.Bold
                 )
             }
+            Box(
+                modifier = Modifier
+                    .height(175.dp)
+                    .fillMaxWidth()
+                    .padding((10.dp))
+            ) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .width(20.dp)
+                        .background(
+                            Color(0xFFF9B036)
+                        )
+                )
+                Card(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 8.dp, vertical = 4.dp)
+                        .height(70.dp),
+                    shape = RoundedCornerShape(8.dp),
+                    colors = CardDefaults.cardColors(
+                        containerColor = Color(0xFF9FA9E1)
+                    )
+                ) {
+                    Box(
+                        modifier = Modifier
+                            .width(10.dp)
+                            .height(80.dp)
+                            .background(Color(0xFFF9B036))
+                    )
+                }
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier.padding(8.dp)
+                ) {
+
+                    Spacer(modifier = Modifier.width(16.dp))
+                    Image(
+                        painter = painterResource(R.drawable.luana),
+                        contentDescription = stringResource(R.string.luana),
+                        modifier = Modifier
+                            .size(50.dp)
+                            .clip(CircleShape),
+                        contentScale = ContentScale.Crop
+                    )
+                    Spacer(modifier = Modifier.width(16.dp))
+                    Column(modifier = Modifier.weight(1f)) {
+                        Text(
+                            text = stringResource(R.string.luana),
+                            fontWeight = FontWeight.SemiBold,
+                            fontSize = 18.sp,
+                            color = Color.White
+                        )
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Icon(
+                                painter = painterResource(id = R.drawable.identification),
+                                contentDescription = stringResource(R.string.numero_estudante),
+                                tint = Color.White,
+                                modifier = Modifier.size(14.dp)
+                            )
+                            Spacer(modifier = Modifier.width(4.dp))
+                            Text(
+                                text = stringResource(R.string.numero_estudante),
+                                color = Color.White,
+                                fontSize = 10.sp
+                            )
+                        }
+                    }
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Image(
+                            painter = painterResource(id = R.drawable.calendario),
+                            contentDescription = " ",
+                            modifier = Modifier.size(15.dp)
+                        )
+                        Spacer(modifier = Modifier.width(5.dp))
+                        Text(
+                            text = stringResource(R.string.doismildoisdois),
+                            fontSize = 10.sp,
+                            color = Color(0xFFF9B036),
+                            fontWeight = FontWeight.ExtraBold
+                        )
+                    }
+                }
+            }
         }
     }
 }
+
 
 @Preview(showSystemUi = true)
 @Composable
